@@ -1,0 +1,331 @@
+.advantages {
+  @include back("../img/advantages-background.png");
+  background-size: cover;
+  background-position: center center;
+}
+
+.advantages__wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20% 30px;
+}
+
+.advantages__header {
+  position: relative;
+  display: block;
+  margin: 0;
+  margin-bottom: 100px;
+
+  font-size: 60px;
+  line-height: 72px;
+
+  &::after {
+    @include pseudo;
+
+    width: 226px;
+    height: 228px;
+
+    top: -100px;
+    right: 12%;
+
+    @include back("../img/pluses.png");
+  }
+}
+
+.advantages__list {
+  position: relative;
+
+  @include clear-ul;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &::after {
+    @include pseudo;
+
+    width: 157px;
+    height: 156px;
+
+    bottom: -25%;
+    left: 50%;
+
+    @include back("../img/half-circle.png");
+  }
+}
+
+.advantages__list-item {
+  position: relative;
+  width: 355px;
+  margin-bottom: 70px;
+  margin-right: 20px;
+}
+
+@include desktop-only {
+  .advantages__list-item:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+.advantages__list-item-header {
+  position: relative;
+  display: block;
+  width: 220px;
+  margin-left: 125px;
+
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: normal;
+
+  &::before {
+    @include pseudo;
+
+    bottom: 0;
+    left: -125px;
+  }
+
+  &--select {
+    &::before {
+      width: 78px;
+      height: 78px;
+
+      @include back("../img/select.png");
+    }
+  }
+
+  &--time {
+    &::before {
+      width: 87px;
+      height: 87px;
+
+      @include back("../img/time-and-date.png");
+    }
+  }
+
+  &--coin {
+    &::before {
+      width: 67px;
+      height: 84px;
+
+      @include back("../img/coin.png");
+    }
+  }
+
+  &--team {
+    &::before {
+      width: 94px;
+      height: 69px;
+
+      @include back("../img/team.png");
+    }
+  }
+
+  &--graphic {
+    &::before {
+      width: 92px;
+      height: 92px;
+
+      @include back("../img/graphic.png");
+    }
+  }
+
+  &--award {
+    &::before {
+      width: 71px;
+      height: 95px;
+
+      @include back("../img/award.png");
+    }
+  }
+}
+
+.advantages__list-item-description {
+  display: block;
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 200;
+  color: #185c8b;
+}
+
+.advantages__order-button-wrapper {
+  position: relative;
+
+  &::before {
+    @include pseudo;
+
+    width: 383px;
+    height: 129px;
+
+    top: -34px;
+    left: -60px;
+
+    @include back("../img/advantages-button.png");
+  }
+}
+
+.advantages__order-button {
+  position: relative;
+  z-index: 10;
+  width: 286px;
+  height: 70px;
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@include tablet {
+  .advantages__wrapper {
+    padding: 200px 70px;
+
+    &::before {
+      top: -10%;
+      left: -65%;
+    }
+  }
+
+  .advantages__header {
+    font-size: 48px;
+    line-height: 1.5em;
+
+    &::after {
+      top: -150px;
+      right: 5%;
+    }
+  }
+
+  .advantages__list {
+    &::after {
+      display: none;
+    }
+  }
+
+  .advantages__list-item-header {
+    margin-left: 100px;
+    width: 190px;
+
+    font-size: 20px;
+    line-height: 24px;
+
+    &::before {
+      left: -100px;
+    }
+  }
+
+  .advantages__list-item-description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .advantages__list-item {
+    width: 300px;
+    margin-right: 20px;
+  }
+}
+
+@include tablet-only {
+  .advantages__list-item:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+@include mobile {
+  .advantages__wrapper {
+    padding: 60px 20px;
+  }
+
+  .advantages__header {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .advantages__list {
+    flex-direction: column;
+  }
+
+  .advantages__list-item {
+    width: 280px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .advantages__list-item-header {
+    width: 180px;
+    margin-left: 90px;
+
+    &::before {
+      left: -90px;
+    }
+
+    &--select {
+      &::before {
+        width: 61px;
+        height: 61px;
+
+        @include back("../img/select-mobile.png");
+      }
+    }
+
+    &--time {
+      &::before {
+        width: 61px;
+        height: 61px;
+
+        @include back("../img/time-and-date-mobile.png");
+      }
+    }
+
+    &--coin {
+      &::before {
+        width: 53px;
+        height: 67px;
+
+        @include back("../img/coin-mobile.png");
+      }
+    }
+
+    &--team {
+      &::before {
+        width: 68px;
+        height: 50px;
+
+        @include back("../img/team-mobile.png");
+      }
+    }
+
+    &--graphic {
+      &::before {
+        width: 69px;
+        height: 69px;
+
+        @include back("../img/graphic-mobile.png");
+      }
+    }
+
+    &--award {
+      &::before {
+        width: 61px;
+        height: 82px;
+
+        @include back("../img/award-mobile.png");
+      }
+    }
+  }
+
+  .advantages__order-button-wrapper {
+    &::before {
+      display: none;
+    }
+  }
+
+  .advantages__order-button {
+    width: 280px;
+    margin: 0 auto;
+  }
+}

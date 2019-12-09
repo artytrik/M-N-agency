@@ -1,0 +1,56 @@
+@mixin clear-ul() {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+@mixin pseudo() {
+  content: "";
+
+  position: absolute;
+}
+
+@mixin pseudo-top($width, $height) {
+  content: "";
+
+  position: absolute;
+  width: $width;
+  height: $height;
+}
+
+@mixin back($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@mixin mobile {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @media (min-width: $tablet-width + 1) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: $mobile-width + 1) and (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (min-width: $mobile-width + 1) {
+    @content;
+  }
+}

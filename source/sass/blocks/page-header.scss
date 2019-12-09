@@ -1,0 +1,272 @@
+.page-header {
+  background-color: #ffffff;
+  width: auto;
+  z-index: 20;
+}
+
+.page-header__main-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px 30px 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.page-header__toggle {
+  display: none;
+}
+
+.page-header__logo-wrapper {
+  margin-right: 23.5%;
+}
+
+.page-header__logo {
+  display: block;
+  width: 150px;
+  height: 95px;
+}
+
+.page-header__write-button {
+  width: 192px;
+  height: 52px;
+
+  margin: 21px 0;
+  font-size: 18px;
+}
+
+.page-header__time {
+  position: relative;
+  margin: 27px 0;
+  width: 110px;
+
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 22px;
+
+  &::before {
+    @include pseudo;
+
+    width: 13px;
+    height: 13px;
+
+    top: 3px;
+    left: -24px;
+
+    background-image: url("../img/clock.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+}
+
+.page-header__contacts-wrapper {
+  margin: 25px 0;
+  width: 190px;
+}
+
+.page-header__contacts-telephone {
+  display: block;
+  text-align: end;
+}
+
+.page-header__contacts-telephone-link {
+  font-weight: bold;
+  font-size: 24px;
+  color: black;
+}
+
+.page-header__contacts-order {
+  display: block;
+  padding: 0;
+  margin-left: auto;
+
+  font-size: 18px;
+  font-weight: bold;
+  color: #317efe;
+  background-color: white;
+
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px dotted #317efe;
+
+  &:hover,
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.page-header__nav-wrapper {
+  border: 1px solid #e1e1e1;
+}
+
+.page-header__nav {
+  position: relative;
+  z-index: 50;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+@include tablet {
+  .page-header__main-wrapper {
+    max-width: $tablet-width;
+    padding: 37px 70px 7px;
+    align-items: center;
+  }
+
+  .page-header__nav-wrapper {
+    border: none;
+  }
+
+  .page-header--closed .page-header__nav-wrapper {
+    display: none;
+  }
+
+  .page-header--opened .page-header__nav-wrapper {
+    display: block;
+  }
+
+  .page-header__write-button {
+    display: none;
+  }
+
+  .page-header__toggle {
+    position: relative;
+
+    display: block;
+    align-self: center;
+    width: 46px;
+    height: 36px;
+
+    background-color: #ffffff;
+
+    cursor: pointer;
+    border: none;
+  }
+
+  .page-header--closed .page-header__toggle::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 46px;
+    height: 4px;
+
+    background-color: #221f1f;
+    box-shadow: 0 14px 0 0 #221f1f, 0 29px 0 0 #221f1f;
+  }
+
+  .page-header--opened .page-header__toggle {
+    &::before,
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: 15px;
+      left: 0;
+
+      width: 46px;
+      height: 4px;
+
+      background-color: #221f1f;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      box-shadow: none;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .page-header__logo-wrapper {
+    margin-right: 5%;
+  }
+
+  .page-header__time {
+    margin: 0;
+  }
+
+  .page-header__contacts-wrapper {
+    margin: 0;
+    margin-top: 5px;
+  }
+}
+
+@include mobile {
+  .page-header__main-wrapper {
+    max-width: $mobile-width;
+
+    padding: 23px 20px 12px;
+  }
+
+  .page-header--closed .page-header__contacts-wrapper {
+    display: none;
+  }
+
+  .page-header--closed .page-header__time {
+    display: none;
+  }
+
+  .page-header--opened .page-header__contacts-wrapper {
+    display: block;
+    position: absolute;
+    z-index: 60;
+
+    top: 30px;
+    right: 30px;
+  }
+
+  .page-header__contacts-telephone-link {
+    color: white;
+  }
+
+  .page-header__contacts-order {
+    color: #fdd954;
+    background-color: #0096ff;
+    border-color: #fdd954;
+  }
+
+  .page-header--opened .page-header__time {
+    display: block;
+    position: absolute;
+    z-index: 60;
+
+    top: 110px;
+    right: 70px;
+
+    color: white;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .page-header__logo-wrapper {
+    margin-right: 50%;
+    transform: translateX(50%);
+  }
+
+  .page-header__toggle {
+    width: 46px;
+    height: 34px;
+  }
+
+  .page-header__toggle::before {
+    width: 28px;
+    height: 2px;
+
+    background-color: #221f1f;
+    box-shadow: 0 9px 0 0 #221f1f, 0 18px 0 0 #221f1f;
+  }
+
+  .page-header__logo {
+    width: 108px;
+    height: 69px;
+  }
+}
