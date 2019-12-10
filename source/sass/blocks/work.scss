@@ -2,6 +2,7 @@
   @include back("../img/work-background.png");
   background-size: cover;
   background-position: -300px center;
+  overflow: hidden;
 }
 
 .work__wrapper {
@@ -59,9 +60,55 @@
 }
 
 .work__list-item {
+  position: relative;
   width: 30%;
   margin-bottom: 70px;
   margin-right: 5%;
+
+  &::before {
+    @include pseudo;
+    z-index: 5;
+
+    width: 18px;
+    height: 18px;
+
+    top: -50px;
+    left: 50px;
+
+    background-color: #0096ff;
+    border-radius: 100%;
+    box-shadow: #ffffff 0 0 0 5px, #0096ff 0 0 0 6px;
+  }
+
+  &:first-child {
+    &::after {
+      @include pseudo;
+      z-index: 4;
+
+      width: 1572px;
+      height: 31px;
+
+      top: -60px;
+      left: 10%;
+
+      @include back("../img/work-line.png");
+    }
+  }
+
+  &:nth-child(4) {
+    &::after {
+      @include pseudo;
+      z-index: 4;
+
+      width: 1572px;
+      height: 31px;
+
+      top: -50px;
+      left: -190%;
+
+      @include back("../img/work-line2.png");
+    }
+  }
 }
 
 @include desktop-only {
@@ -251,6 +298,42 @@
     width: 45%;
     margin-bottom: 70px;
     margin-right: 10%;
+
+    &:nth-child(3) {
+      &::after {
+        @include pseudo;
+        z-index: 4;
+
+        width: 1572px;
+        height: 31px;
+
+        top: -50px;
+        left: -50%;
+
+        @include back("../img/work-line.png");
+      }
+    }
+
+    &:nth-child(4) {
+      &::after {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
+      &::after {
+        @include pseudo;
+        z-index: 4;
+
+        width: 1572px;
+        height: 31px;
+
+        top: -40px;
+        left: -400%;
+
+        @include back("../img/work-line.png");
+      }
+    }
   }
 
   @include tablet-only {
@@ -281,6 +364,11 @@
 
   .work__list-item {
     width: 280px;
+
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 
   .work__header {

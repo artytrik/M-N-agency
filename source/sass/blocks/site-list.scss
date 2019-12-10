@@ -5,24 +5,6 @@
   justify-content: space-between;
 }
 
-.site-list__item--down {
-  position: relative;
-
-  &::after {
-    @include pseudo;
-
-    width: 20px;
-    height: 10px;
-
-    top: 25px;
-    right: -30%;
-
-    background-image: url("../img/right-arrow.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-}
-
 .site-list__item a {
   display: block;
   padding: 13px 2px 12px;
@@ -33,16 +15,37 @@
   &:hover,
   &:active {
     color: #317efe;
+
+    & svg {
+      fill: #317efe;
+    }
   }
 }
+
+.site-list__item--down {
+  position: relative;
+}
+
+.site-list__item--down a{
+  padding-right: 30px;
+}
+
+.site-list__item--down svg{
+  position: absolute;
+
+  top: 25px;
+  right: 0;
+}
+
 
 @include tablet {
   .site-list {
     flex-direction: column;
     position: absolute;
-    z-index: 50;
+    z-index: 20;
     background-color: #0096ff;
     padding: 50px 0;
+    border-radius: 0 0 0 9px;
 
     top: 0;
     right: 0;
@@ -50,6 +53,16 @@
 
   .site-list__item {
     width: 370px;
+  }
+
+  .site-list__item--down svg{
+    fill: white;
+
+    width: 27px;
+    height: 15px;
+
+    top: 17px;
+    right: 50%;
   }
 
   .site-list__item a {
@@ -61,12 +74,10 @@
     &:hover,
     &:active {
       color: #fdd954;
-    }
-  }
 
-  .site-list__item--down {
-    &::after {
-      display: none;
+      & svg {
+        fill: #fdd954;
+      }
     }
   }
 }
@@ -74,7 +85,6 @@
 @include mobile {
   .site-list {
     padding: 180px 0 30px;
-    border-radius: 0 0 0 9px;
   }
 
   .site-list__item {
@@ -83,5 +93,19 @@
 
   .site-list__item a {
     padding: 0 40px;
+    font-size: 20px;
+    line-height: 36px;
+  }
+
+  .site-list__item--down svg{
+    fill: white;
+
+    right: 45%;
+
+    width: 18px;
+    height: 10px;
+
+    top: 13px;
+    right: 50%;
   }
 }

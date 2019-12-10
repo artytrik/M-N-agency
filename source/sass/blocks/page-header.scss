@@ -1,5 +1,4 @@
 .page-header {
-  background-color: #ffffff;
   width: auto;
   z-index: 20;
 }
@@ -43,21 +42,13 @@
   font-size: 16px;
   font-weight: normal;
   line-height: 22px;
+}
 
-  &::before {
-    @include pseudo;
+.page-header__time svg {
+  position: absolute;
 
-    width: 13px;
-    height: 13px;
-
-    top: 3px;
-    left: -24px;
-
-    background-image: url("../img/clock.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100%;
-  }
+  top: 3px;
+  left: -25px;
 }
 
 .page-header__contacts-wrapper {
@@ -101,8 +92,6 @@
 }
 
 .page-header__nav {
-  position: relative;
-  z-index: 50;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 30px;
@@ -241,10 +230,10 @@
     right: 70px;
 
     color: white;
+  }
 
-    &::before {
-      display: none;
-    }
+  .page-header__time svg {
+    fill: white;
   }
 
   .page-header__logo-wrapper {
