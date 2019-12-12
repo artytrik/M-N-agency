@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/public_html/m&n.agency
+    - /bin cp /build/* $DEPLOYPATH

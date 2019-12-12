@@ -2,12 +2,13 @@
   @include back("../img/advantages-background.png");
   background-size: cover;
   background-position: center center;
+  margin-top: -170px;
 }
 
 .advantages__wrapper {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 20% 30px;
+  padding: 15% 30px;
 }
 
 .advantages__header {

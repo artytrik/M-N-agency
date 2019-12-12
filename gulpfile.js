@@ -10,10 +10,7 @@ const imagemin = require('gulp-imagemin');
 const svgstore = require('gulp-svgstore');
 const posthtml = require('gulp-posthtml');
 const include = require('posthtml-include');
-const uglify = require('gulp-uglify');
-const pump = require('pump');
 const del = require('del');
-const surge = require('gulp-surge');
 
 gulp.task('style', () => (
   gulp.src('source/sass/style.scss')
@@ -40,8 +37,9 @@ gulp.task('serve', () => {
   gulp.watch('source/sass/**/*.{scss,sass}', gulp.series('style'));
   gulp.watch('source/img/*.svg', gulp.series('sprite', 'html', 'reload'));
   gulp.watch('source/img/**/*.{png,jpg,svg}', gulp.series('images', 'reload'));
-  gulp.watch('source/*html', gulp.series('html', 'reload'));
-  gulp.watch('source/js/**/*.js', gulp.series('js', 'reload'));
+  gulp.watch('source/*.html', gulp.series('html', 'reload'));
+  gulp.watch('source/js/**/*.js', gulp.series('copy', 'reload'));
+  gulp.watch('source/*.php', gulp.series('copy', 'reload'));
 });
 
 gulp.task('reload', (done) => {
@@ -76,17 +74,11 @@ gulp.task('html', () => (
     .pipe(gulp.dest('build'))
 ));
 
-gulp.task('js', (cb) => (
-  pump([
-    gulp.src('source/js/**/*.js'),
-    uglify(),
-    gulp.dest('build/js')
-  ], cb)
-));
-
 gulp.task('copy', () => (
   gulp.src([
-    'source/fonts/**/*.{woff,woff2}'
+    'source/fonts/**/*.{woff,woff2}',
+    'source/js/**/*.js',
+    'source/*.php'
   ], {
     base: 'source'
   })
@@ -97,13 +89,6 @@ gulp.task('clean', () => (
   del('build')
 ));
 
-gulp.task('deploy', () => (
-  surge({
-    project: 'build',
-    domain: 'tema-luch.surge.sh'
-  })
-));
-
-gulp.task('build', gulp.series('clean', 'sprite', gulp.parallel('copy', 'style', 'images', 'html', 'js')));
+gulp.task('build', gulp.series('clean', 'sprite', gulp.parallel('copy', 'style', 'images', 'html')));
 
 gulp.task('start', gulp.series('build', 'serve'));

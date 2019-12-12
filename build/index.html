@@ -5,8 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>M-N.AGENCY</title>
   <link href="css/style.min.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="img/Agency.png">
 </head>
 <body>
+  <section class="modal modal--call">
+    <div class="modal__wrapper">
+      <div class="modal__close-button">
+        <svg class="modal__cross" width="20px" height="20px" viewBox="0 0 40 40" enable-background="new 0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"></path><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"></path></svg>
+      </div>
+      <h2 class="modal__header modal__header--call">Заказать звонок</h2>
+      <p class="modal__description">Оставьте заявку и мы перезвоним Вам в течение 10 минут</p>
+      <form class="modal__form" method="POST" action="send.php">
+        <input type="text" class="modal__input modal__input--name" name="name" id="name" placeholder="Ваше имя" maxlength="40" required="">
+        <input type="tel" class="modal__input modal__input--telephone" name="telephone" id="phone" placeholder="+7" required="">
+        <button type="submit" name="send" class="button modal__send-button">Отправить</button>
+      </form>
+    </div>
+  </section>
   <header class="page-header page-header--closed">
     <div class="page-header__main-wrapper">
       <button class="page-header__toggle" type="button">
@@ -399,6 +414,14 @@
       <span class="page-footer__copyright">© 2019 M&N / web-develop co.</span>
     </div>
   </footer>
+  <div class="modal-overlay"></div>
   <script src="js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
+  <script>
+    $(document).ready(function() {
+      $("#phone").mask("+7 (999) 999-9999");
+    });
+  </script>
 </body>
 </html>

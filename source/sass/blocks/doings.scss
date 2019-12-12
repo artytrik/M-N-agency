@@ -33,8 +33,8 @@
   &::after {
     @include pseudo-top(179px, 284px);
 
-    top: 0;
-    right: -34px;
+    top: 45px;
+    right: -75px;
 
     @include back("../img/big-pluses.png");
   }
