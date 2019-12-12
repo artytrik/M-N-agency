@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/public_html/m&n.agency
-    - /bin/cp /home/repositories/M-N-agency/build/* $DEPLOYPATH
+    - export DEPLOYPATH=/var/www/u0776125/public_html/m&n.agency
+    - /bin/cp /var/www/u0776125/repositories/M-N-agency/build/* $DEPLOYPATH
