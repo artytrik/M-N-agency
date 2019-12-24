@@ -8,8 +8,7 @@
     "stylelint": "stylelint 'source/sass/**/*.scss' --syntax scss",
     "test": "npm run editorconfig && npm run stylelint",
     "build": "gulp build",
-    "start": "gulp start",
-    "deploy": "gulp deploy"
+    "start": "gulp start"
   },
   "devDependencies": {
     "autoprefixer": "9.7.1",

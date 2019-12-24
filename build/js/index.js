@@ -5,6 +5,10 @@ const modalCall = document.querySelector('.modal--call');
 const modalClose = modalCall.querySelector('.modal__cross');
 const modalOverlay = document.querySelector('.modal-overlay');
 const introOrderButton = document.querySelector('.intro__order-button');
+const modalForm = modalCall.querySelector('.modal__form');
+const modalInput = modalForm.querySelectorAll('.modal__input');
+const modalSuccess = document.querySelector('.modal-success');
+const modalSuccessClose = modalSuccess.querySelector('.modal-success__cross');
 
 const onMenuClick = () => {
   if (pageHeader.classList.contains('page-header--closed')) {
@@ -18,6 +22,7 @@ const onMenuClick = () => {
 };
 
 const onCloseButtonClick = () => {
+  modalInput.forEach((input) => input.value = "");
   modalCall.classList.remove('modal__opened');
   modalOverlay.classList.remove('modal-overlay__show');
   modalClose.removeEventListener('click', onCloseButtonClick);
@@ -25,6 +30,25 @@ const onCloseButtonClick = () => {
   document.removeEventListener('keydown', onModalEscPress);
   pageHeaderContactsOrder.addEventListener('click', onContactsButtonClick);
   introOrderButton.addEventListener('click', onContactsButtonClick);
+};
+
+const onSendSuccess = () => {
+  modalCall.classList.remove('modal__opened');
+  modalSuccess.classList.add('modal-success__opened');
+  modalClose.removeEventListener('click', onCloseButtonClick);
+  document.removeEventListener('keydown', onModalEscPress);
+  modalSuccessClose.addEventListener('click', onCloseSuccess);
+  modalOverlay.removeEventListener('click', onCloseButtonClick);
+  modalOverlay.addEventListener('click', onCloseSuccess);
+};
+
+const onCloseSuccess = () => {
+  modalSuccess.classList.remove('modal-success__opened');
+  modalSuccessClose.removeEventListener('click', onCloseSuccess);
+  modalOverlay.removeEventListener('click', onCloseSuccess);
+  pageHeaderContactsOrder.addEventListener('click', onContactsButtonClick);
+  introOrderButton.addEventListener('click', onContactsButtonClick);
+  modalOverlay.classList.remove('modal-overlay__show');
 };
 
 const onContactsButtonClick = (evt) => {
@@ -47,3 +71,20 @@ const onModalEscPress = (evt) => {
 pageHeaderToggle.addEventListener('click', onMenuClick);
 pageHeaderContactsOrder.addEventListener('click', onContactsButtonClick);
 introOrderButton.addEventListener('click', onContactsButtonClick);
+
+$("#form").submit(function (e) { // Устанавливаем событие отправки для формы с id=form
+  e.preventDefault();
+   var form_data = $(this).serialize();
+   console.log(form_data); // Собираем все данные из формы
+   $.ajax({
+       type: "POST", // Метод отправки
+       url: "send.php", // Путь до php файла отправителя
+       data: form_data,
+       dataType: 'json', // what type of data do we expect back from the server
+       encode: true
+   })
+   .done(function(data) {
+    console.log(data);
+    onSendSuccess();
+   });
+});

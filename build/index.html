@@ -15,11 +15,20 @@
       </div>
       <h2 class="modal__header modal__header--call">Заказать звонок</h2>
       <p class="modal__description">Оставьте заявку и мы перезвоним Вам в течение 10 минут</p>
-      <form class="modal__form" method="POST" action="send.php">
+      <form id="form" class="modal__form" method="POST" action="send.php">
         <input type="text" class="modal__input modal__input--name" name="name" id="name" placeholder="Ваше имя" maxlength="40" required="">
         <input type="tel" class="modal__input modal__input--telephone" name="telephone" id="phone" placeholder="+7" required="">
         <button type="submit" name="send" class="button modal__send-button">Отправить</button>
       </form>
+    </div>
+  </section>
+  <section class="modal-success">
+    <div class="modal-success__wrapper">
+      <div class="modal-success__close-button">
+        <svg class="modal-success__cross" width="20px" height="20px" viewBox="0 0 40 40" enable-background="new 0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"></path><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"></path></svg>
+      </div>
+      <h2 class="modal-success__header">Спасибо, ваша заявка принята!</h2>
+      <p class="modal-success__description">Мы уже спешим Вам перезванивать</p>
     </div>
   </section>
   <header class="page-header page-header--closed">
@@ -29,7 +38,7 @@
       </button>
       <div class="page-header__logo-wrapper">
         <a href="index.html" class="page-header__logo">
-          <img src="img/Agency.png" alt="Агенстао M&N">
+          <img src="img/Agency.png" alt="Агенство M&N">
         </a>
       </div>
       <button type="button" class="button page-header__write-button">Заполнить бриф</button>
@@ -415,8 +424,8 @@
     </div>
   </footer>
   <div class="modal-overlay"></div>
-  <script src="js/index.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="js/index.js"></script>
   <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
   <script>
     $(document).ready(function() {

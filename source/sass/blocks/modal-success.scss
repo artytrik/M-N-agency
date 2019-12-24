@@ -1,0 +1,59 @@
+.modal-success {
+  position: absolute;
+  display: none;
+  position: fixed;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 540px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.modal-success__opened {
+  display: block;
+}
+
+.modal-success__close-button {
+  position: absolute;
+  cursor: pointer;
+
+  top: 30px;
+  right: 30px;
+}
+
+.modal-success__wrapper {
+  width: 410px;
+  margin: 0 auto;
+  padding: 60px;
+}
+
+.modal-success__header {
+  position: relative;
+  margin: 0;
+  margin-bottom: 15px;
+  margin-left: auto;
+  display: block;
+  width: 275px;
+
+  font-size: 36px;
+  font-weight: bold;
+
+  &::before {
+    @include pseudo-top(74px, 74px);
+
+    top: 0;
+    left: -100px;
+
+    @include back("../img/tick.png");
+  }
+}
+
+.modal-success__description {
+  margin: 0;
+
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+}

@@ -1,9 +1,18 @@
 <?php
-  if (isset($_POST["send"])) {
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
+  $errors = array();
+  $data = array();
 
-    $to = "tema-luch@mail.ru";; // Здесь нужно написать e-mail, куда будут приходить письма
+  if (empty($_POST['name']))
+    $errors['name'] = 'Name is required';
+
+  if (empty($_POST['telephone']))
+    $errors['telephone'] = 'Telephone is required';
+
+  if (!empty($errors)) {
+    $data['success'] = false;
+    $data['errors'] = $errors;
+  } else {
+    $to = "alexandr.naro@gmail.com";; // Здесь нужно написать e-mail, куда будут приходить письма
     $from = "site@m-n.agency"; // this is the sender's Email address
 
     $first_name = $_POST['name'];
@@ -16,6 +25,9 @@
     //$headers2 = "From:" . $to;
 
     mail($to,$subject,$message,$headers);
-    exit('<meta http-equiv="refresh" content="0; url=index.html" />');
+
+    $data['success'] = true;
+    $data['message'] = 'Success!';
   }
+echo json_encode($data);
 ?>
