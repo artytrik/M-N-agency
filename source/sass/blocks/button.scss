@@ -14,6 +14,14 @@
 
   &:hover,
   &:active {
-    opacity: 0.9;
+    background: linear-gradient(to right, #004cff 0%, #007bff);
+  }
+
+  &--yellow {
+    &:hover,
+    &:active {
+      opacity: 0.9;
+      background: #fdd954;
+    }
   }
 }
