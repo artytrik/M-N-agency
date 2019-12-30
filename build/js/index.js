@@ -26,16 +26,12 @@ const onCloseButtonClick = () => {
   modalInput.forEach((input) => input.value = "");
   modalCall.classList.remove('modal__opened');
   modalOverlay.classList.remove('modal-overlay__show');
+  modalSuccess.classList.remove('modal-success__opened');
 };
 
 const onSendSuccess = () => {
   modalCall.classList.remove('modal__opened');
   modalSuccess.classList.add('modal-success__opened');
-};
-
-const onCloseSuccess = () => {
-  modalSuccess.classList.remove('modal-success__opened');
-  modalOverlay.classList.remove('modal-overlay__show');
 };
 
 const onContactsButtonClick = (evt) => {
