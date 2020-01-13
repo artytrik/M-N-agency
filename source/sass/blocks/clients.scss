@@ -19,7 +19,15 @@
   flex-wrap: wrap;
 }
 
+.clients__link {
+  &:hover,
+  &:active {
+    opacity: 0.8;
+  }
+}
+
 .clients__list-item {
+  display: flex;
   width: 22%;
   height: 130px;
   border: 1px solid #f4effd;
@@ -27,6 +35,8 @@
   margin-right: 2%;
   margin-bottom: 20px;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
 }
 
 @include desktop-only {
