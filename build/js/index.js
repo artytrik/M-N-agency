@@ -2,7 +2,7 @@ const pageHeader = document.querySelector('.page-header');
 const pageHeaderToggle = pageHeader.querySelector('.page-header__toggle');
 const pageHeaderContactsOrder = pageHeader.querySelector('.page-header__contacts-order');
 const modalCall = document.querySelector('.modal--call');
-const modalClose = modalCall.querySelector('.modal__cross');
+const closeCrosses = document.querySelectorAll('.cross');
 const modalOverlay = document.querySelector('.modal-overlay');
 const introOrderButton = document.querySelector('.intro__order-button');
 const modalForm = modalCall.querySelector('.modal__form');
@@ -10,6 +10,8 @@ const modalInput = modalForm.querySelectorAll('.modal__input');
 const modalSuccess = document.querySelector('.modal-success');
 const modalSuccessClose = modalSuccess.querySelector('.modal-success__cross');
 const servicesButtons = document.querySelectorAll('.services__list-item-order-button');
+const mapButton = document.querySelector('.page-footer__map-link');
+const modalMap = document.querySelector('.modal-map');
 
 const onMenuClick = () => {
   if (pageHeader.classList.contains('page-header--closed')) {
@@ -22,11 +24,18 @@ const onMenuClick = () => {
   }
 };
 
+const onMapButtonClick = (evt) => {
+  evt.preventDefault();
+  modalOverlay.classList.add('modal-overlay__show');
+  modalMap.classList.add('modal-map--show');
+};
+
 const onCloseButtonClick = () => {
   modalInput.forEach((input) => input.value = "");
   modalCall.classList.remove('modal__opened');
   modalOverlay.classList.remove('modal-overlay__show');
   modalSuccess.classList.remove('modal-success__opened');
+  modalMap.classList.remove('modal-map--show');
 };
 
 const onSendSuccess = () => {
@@ -40,6 +49,10 @@ const onContactsButtonClick = (evt) => {
   modalOverlay.classList.add('modal-overlay__show');
 };
 
+const onCloseCrossClick = (button) => {
+  button.addEventListener('click', onCloseButtonClick)
+};
+
 /*const onModalEscPress = (evt) => {
   if (evt.keyCode === 27) {
     onCloseButtonClick();
@@ -48,13 +61,18 @@ const onContactsButtonClick = (evt) => {
 
 const onServiceButtonClick = (button) => {
   button.addEventListener('click', onContactsButtonClick)
-}
+};
 
 pageHeaderToggle.addEventListener('click', onMenuClick);
 pageHeaderContactsOrder.addEventListener('click', onContactsButtonClick);
 introOrderButton.addEventListener('click', onContactsButtonClick);
-modalClose.addEventListener('click', onCloseButtonClick);
 modalOverlay.addEventListener('click', onCloseButtonClick);
+mapButton.addEventListener('click', onMapButtonClick);
+
+for (let i = 0; i < closeCrosses.length; i++) {
+  console.log(closeCrosses[i]);
+  onCloseCrossClick(closeCrosses[i]);
+}
 
 for (let i = 0; i < servicesButtons.length; i++) {
   onServiceButtonClick(servicesButtons[i]);

@@ -1,0 +1,40 @@
+.modal-map {
+  display: none;
+  z-index: 150;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 100%;
+}
+
+.modal-map__close-button {
+  position: absolute;
+  cursor: pointer;
+
+  top: 30px;
+  right: 30px;
+}
+
+.modal-map iframe {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: 600px;
+}
+
+.modal-map--show {
+  display: block;
+}
+
+@include tablet {
+  .modal-map iframe {
+    height: 500px;
+  }
+}
+
+@include mobile {
+  .modal-map iframe {
+    height: 400px;
+  }
+}

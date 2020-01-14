@@ -11,7 +11,7 @@
   <section class="modal modal--call">
     <div class="modal__wrapper">
       <div class="modal__close-button">
-        <svg class="modal__cross" width="20px" height="20px" viewBox="0 0 40 40" enable-background="new 0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"/><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"/></svg>
+        <svg class="modal__cross cross" width="20px" height="20px" viewBox="0 0 40 40" enable-background="new 0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"/><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"/></svg>
       </div>
       <h2 class="modal__header modal__header--call">Заказать звонок</h2>
       <p class="modal__description">Оставьте заявку и мы перезвоним Вам в течение 10 минут</p>
@@ -25,7 +25,7 @@
   <section class="modal-success">
     <div class="modal-success__wrapper">
       <div class="modal-success__close-button">
-        <svg class="modal-success__cross" width="20px" height="20px" viewBox="0 0 40 40" enable-background="new 0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"/><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"/></svg>
+        <svg class="modal-success__cross cross" width="20px" height="20px" viewBox="0 0 40 40" enable-background="new 0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"/><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"/></svg>
       </div>
       <h2 class="modal-success__header">Спасибо, ваша заявка принята!</h2>
       <p class="modal-success__description">Мы уже спешим Вам перезванивать</p>
@@ -423,13 +423,19 @@
           <a href="tel:+79651662663" class="page-footer__contacts-telephone-link">+7 965 166 26 63</a>
         </span>
         <span class="page-footer__contacts-email">
-          <a href="mailto:hello@m-n.agency" class="page-footer__contacts-email-link">hello@m-n.agency</a>
+          <a href="mailto:hello@m-n.agency" class="page-footer__contacts-email-link">mail@m-n.agency</a>
         </span>
       </div>
-      <span class="page-footer__map-link">мы на карте</span>
-      <span class="page-footer__copyright">© 2019 M&N / web-develop co.</span>
+      <button type="button" class="page-footer__map-link">мы на карте</button>
+      <span class="page-footer__copyright">© 2019 M&N</span>
     </div>
   </footer>
+  <div class="modal-map">
+    <div class="modal-map__close-button">
+      <svg class="modal-map__cross cross" width="20px" height="20px" viewBox="0 0 40 40" enable-background="new 0 0 50 50"><path d="M37.304 11.282l1.414 1.414-26.022 26.02-1.414-1.413z"/><path d="M12.696 11.282l26.022 26.02-1.414 1.415-26.022-26.02z"/></svg>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15932.677107290945!2d37.622749403096996!3d55.76657374978519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a663d8c58a5%3A0xac429ce6ff7a559a!2z0KDRi9Cx0L3QuNC60L7QsiDQv9C10YAuLCAxLCDQnNC-0YHQutCy0LAsIDEwNzA0NQ!5e0!3m2!1sru!2sru!4v1578992147022!5m2!1sru!2sru" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+  </div>
   <div class="modal-overlay"></div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="js/index.js"></script>

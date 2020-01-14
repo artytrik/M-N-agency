@@ -82,12 +82,15 @@
 .page-footer__map-link {
   position: relative;
   display: block;
-  width: 125px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  transform: translateX(10%);
   margin: 0 auto;
   border-bottom: 1px solid #fdd954;
   color: #fdd954;
   font-size: 24px;
-  margin-bottom: 130px;
+  margin-bottom: 100px;
 
   &::before {
     @include pseudo();
@@ -104,8 +107,7 @@
 
 .page-footer__copyright {
   display: block;
-  width: 224px;
-  margin: 0 auto;
+  text-align: center;
   font-size: 14px;
   line-height: 36px;
   color: #ffffff;
@@ -148,10 +150,6 @@
     transform: translateX(2%);
     margin-bottom: 90px;
   }
-
-  .page-footer__copyright {
-    width: 200px;
-  }
 }
 
 @include mobile {
@@ -189,8 +187,6 @@
 
   .page-footer__map-link {
     font-size: 18px;
-    width: 95px;
-    transform: translateX(10%);
     margin-bottom: 50px;
   }
 }
