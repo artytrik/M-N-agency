@@ -11,6 +11,49 @@ const svgstore = require('gulp-svgstore');
 const posthtml = require('gulp-posthtml');
 const include = require('posthtml-include');
 const del = require('del');
+/*const uglify = require('gulp-uglify');
+const webpackStream = require('webpack-stream');
+const webpack = webpackStream.webpack;
+
+gulp.task('js', () => {
+
+  let options = {
+
+  }
+
+  return gulp.src('./source/js/index.js')
+    .pipe(plumber({
+      errorHandler: notify.onError(err => ({
+        title: 'Webpack',
+        message: err.message
+      }))
+    }))
+    .pipe(webpackStream({
+      output: {
+        filename: 'index.js',
+      },
+      module: {
+        rules: [
+          {
+            test: /\.(js)$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader',
+            query: {
+              presets: ['env']
+            }
+          }
+        ]
+      },
+      externals: {
+        jquery: 'jQuery'
+      }
+    }))
+    .pipe(gulp.dest('./build/js/'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./build/js/'));
+});*/
+
 
 gulp.task('style', () => (
   gulp.src('source/sass/style.scss')

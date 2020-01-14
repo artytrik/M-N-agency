@@ -70,7 +70,6 @@ modalOverlay.addEventListener('click', onCloseButtonClick);
 mapButton.addEventListener('click', onMapButtonClick);
 
 for (let i = 0; i < closeCrosses.length; i++) {
-  console.log(closeCrosses[i]);
   onCloseCrossClick(closeCrosses[i]);
 }
 
@@ -81,7 +80,6 @@ for (let i = 0; i < servicesButtons.length; i++) {
 $("#form").submit(function (e) { // Устанавливаем событие отправки для формы с id=form
   e.preventDefault();
    var form_data = $(this).serialize();
-   console.log(form_data); // Собираем все данные из формы
    $.ajax({
        type: "POST", // Метод отправки
        url: "send.php", // Путь до php файла отправителя
@@ -90,14 +88,12 @@ $("#form").submit(function (e) { // Устанавливаем событие о
        encode: true
    })
    .done(function(data) {
-    console.log(data);
     onSendSuccess();
    });
 });
 
 $(function(){
   $('a[href^="#"]').on('click', function(event) {
-    // отменяем стандартное действие
     event.preventDefault();
 
     var sc = $(this).attr("href"),
