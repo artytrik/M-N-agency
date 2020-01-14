@@ -154,7 +154,7 @@
 
 @include mobile {
   .page-footer__wrapper {
-    padding: 150px 20px 50px;
+    padding: 100px 20px 50px;
 
     @include back("../img/footer-back-mobile.png");
     background-position: 0 350px;
