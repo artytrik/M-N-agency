@@ -12,7 +12,7 @@
     $data['success'] = false;
     $data['errors'] = $errors;
   } else {
-    $to = "alexandr.naro@gmail.com";; // Здесь нужно написать e-mail, куда будут приходить письма
+    $to = "mail@m-n.agency";; // Здесь нужно написать e-mail, куда будут приходить письма
     $from = "site@m-n.agency"; // this is the sender's Email address
 
     $first_name = $_POST['name'];
