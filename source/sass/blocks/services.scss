@@ -79,11 +79,11 @@
 }
 
 .services__list-item-price {
-  display: block;
+  display: inline;
   position: relative;
-  margin-bottom: 50px;
+  margin-right: 10px;
 
-  color: #0099ff;
+  color: #fdd954;
   font-size: 24px;
   line-height: 48px;
   font-weight: bold;
@@ -102,8 +102,24 @@
   }
 }
 
+.services__list-item-del-price {
+  color: #0099ff;
+  display: inline;
+}
+
+.services__list-item-dicsount-price {
+  position: relative;
+  color: #0099ff;
+  font-weight: bold;
+
+  font-size: 36px;
+  line-height: 48px;
+  letter-spacing: 0.75px;
+}
+
 .services__list-item-description {
   margin: 0;
+  margin-top: 50px;
   margin-bottom: 60px;
   width: 340px;
 
