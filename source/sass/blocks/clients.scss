@@ -36,6 +36,7 @@
   margin-bottom: 20px;
   box-sizing: border-box;
   align-items: center;
+  padding: 1%;
   justify-content: center;
 }
 
@@ -90,6 +91,10 @@
     height: 60px;
     width: 135px;
     margin-right: 10px;
+  }
+
+  .clients__list-image {
+    max-height: 50px;
   }
 
   .clients__list-item:nth-child(2n) {
