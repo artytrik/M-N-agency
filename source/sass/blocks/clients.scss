@@ -39,6 +39,10 @@
   justify-content: center;
 }
 
+.clients__list-image {
+  max-height: 120px;
+}
+
 @include desktop-only {
   .clients__list-item:nth-child(4n) {
     margin-right: 0;
